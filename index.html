@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./resources/css/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="text/css" href="./resources/css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+    <title>Coding Quiz</title>
 </head>
 
 <body>
-
     <div class="container">
-        <div class="quiz-box">
-            <div id="quiz">
-                <h1> Code Quiz App</h1>
-                <div class = "quiz-header">
-                    <p id="progress">Question x of y</p>
-                    <p id="count-down"></p>
-                </div>
-                <p id="question"></p>
+        <!-- header (highscores and timer) -->
+        <header class="row">
+            <div class="col-md-6" id="Highscores">
+                <a href="./highScore.html">View Highscores</a>
+            </div>
+            <div class="col-md-6" id="timer">
+                Time: <span id="time">0</span>
+            </div>
 
-                <div class="buttons">
-                    <button class="btn" id="btn0">A. <span id="choice0"></span></button>
-                    <button class="btn" id="btn1">B. <span id="choice1"></span></button>
-                    <button class="btn" id="btn2">C. <span id="choice2"></span></button>
-                    <button class="btn" id="btn3">D. <span id="choice3"></span></button>
-                </div>
+        </header>
 
-                <hr>
-                <footer>
-                    <p> Made by Aisha Abdi</p>
-                </footer>
-                <script src="apps.js"></script>
+        <!-- Coding Challenge Title -->
+        <section id="title-section" class="show">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Harry Potter Quiz </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Try to answer the upcoming questions to the best of your ability and within the time limit. 
+                        Keep in mind that any incorrect answers will deduct 10 seconds from your time.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="startButton">Start Quiz</button>
+                </div>
+            </div>
+        </section>
+         <!-- questions -->
+         <section id="quiz-section" class="hide">
+            <div class="row">
+                <div class="col-md-12 questions">
+                    <h3 id="question-title"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="choices"></div>
+                <div id="feedback" class="feedback hide"></div>
+            </div>
+        </section>
+        <!-- High Score section -->
+        <section id="highscore-section" class="hide">
+            <div class="row">
+                <div id="high-score" class="col-md-12">
+                    <h2>All done!</h2>
+                    <h3>Your final score is <span id="final-score">0</span></h3>
+                    <label for="initials-area">Enter initials:</label>
+                    <input type="text" name="initials-area" maxlength="4" id="initials">
+                    <button id="submit-button" type="submit">Submit</button>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="./resources/js/questions.js"></script>
+        <script type="text/javascript" src="./resources/js/script.js"></script>
+        <script type="text/javascript" src="./resources/js/scores.js"></script>
+
 </body>
+
 </html>
