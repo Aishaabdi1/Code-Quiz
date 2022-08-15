@@ -1,78 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./resources/css/normalize.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="text/css" href="./resources/css/normalize.css"> -->
-    <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
-    <title>Coding Quiz</title>
-</head>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Bond Quiz | Home</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <div class="nav-item">
+          <a href="./score.html">Highest Scores</a>
+        </div>
+        <div class="nav-item">Time: <span id="countdown">0</span></div>
+      </nav>
+    </header>
 
-<body>
-    <div class="container">
-        <!-- header (highscores and timer) -->
-        <header class="row">
-            <div class="col-md-6" id="Highscores">
-                <a href="./highScore.html">View Highscores</a>
-            </div>
-            <div class="col-md-6" id="timer">
-                Time: <span id="time">0</span>
-            </div>
+    <div id="alert-container"></div>
 
-        </header>
-
-        <!-- Coding Challenge Title -->
-        <section id="title-section" class="show">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Javascript fundamentals Quiz </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Try to answer the upcoming questions to the best of your ability and within the time limit. 
-                       Remember any incorrect answers will deduct 10 seconds from your time.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button id="startButton">Start Quiz</button>
-                </div>
-            </div>
-        </section>
-         <!-- questions -->
-         <section id="quiz-section" class="hide">
-            <div class="row">
-                <div class="col-md-12 questions">
-                    <h3 id="question-title"></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12" id="choices"></div>
-                <div id="feedback" class="feedback hide"></div>
-            </div>
-        </section>
-        <!-- High Score section -->
-        <section id="highscore-section" class="hide">
-            <div class="row">
-                <div id="high-score" class="col-md-12">
-                    <h2>All done!</h2>
-                    <h3>Your final score is <span id="final-score">0</span></h3>
-                    <label for="initials-area">Enter initials:</label>
-                    <input type="text" name="initials-area" maxlength="4" id="initials">
-                    <button id="submit-button" type="submit">Submit</button>
-                </div>
-            </div>
-        </section>
-        <script type="text/javascript" src="./resources/js/questions.js"></script>
-        <script type="text/javascript" src="./resources/js/script.js"></script>
-        <script type="text/javascript" src="./resources/js/scores.js"></script>
-
-</body>
-
+    <main class="quiz" id="quiz-container">
+      <div class="container start-container" id="start-container">
+        <h1 class="title">James Bond Quiz</h1>
+        <p>Take This James Bond Quiz To Test Your 007 Knowledge</p>
+        <div>
+          <button class="btn" id="start-quiz">Start Quiz</button>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
