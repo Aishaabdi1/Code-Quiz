@@ -35,7 +35,7 @@ const codeQuestions = [
       optionButton.setAttribute("data-option", option);
       optionButton.textContent = option;
   
-      // append to optionsContainer
+    
       optionsContainer.appendChild(optionButton);
     }
   
@@ -43,7 +43,7 @@ const codeQuestions = [
   };
   
   const constructAlert = function (className, text) {
-    // construct div
+  
     const alertDiv = document.createElement("div");
     alertDiv.setAttribute("class", className);
     alertDiv.textContent = text;
@@ -125,59 +125,59 @@ const codeQuestions = [
   };
   
   const renderSuccessAlert = function () {
-    // construct alert
+  
     const alert = constructAlert(
       "container answer-alert answer-alert-success",
       "Congratulations, you are correct!!"
     );
   
-    // append the alert to the document
+  
     document.getElementById("alert-container").appendChild(alert);
   
-    // declare a timeout function (to remove the element)
+  
     const afterWait = function () {
-      // remove alert
+    
       alert.remove();
   
-      // kill timeout
+    
       clearTimeout(delay);
     };
   
-    // start a timeout (delay)
+  
     const delay = setTimeout(afterWait, 1000);
   };
   
   const renderDangerAlert = function () {
-    // construct alert
+  
     const alert = constructAlert(
       "container answer-alert answer-alert-danger",
       "Oops, you are incorrect!!"
     );
   
-    // append the alert to the document
+  
     document.getElementById("alert-container").appendChild(alert);
   
-    // declare a timeout function (to remove the element)
+  
     const afterWait = function () {
-      // remove alert
+    
       alert.remove();
   
-      // kill timeout
+    
       clearTimeout(delay);
     };
   
-    // start a timeout (delay)
+  
     const delay = setTimeout(afterWait, 1000);
   };
   
   const renderScoreForm = function () {
-    // remove the last question
+  
     removeQuestionContainer();
   
-    // construct score form
+  
     const form = constructForm();
   
-    // append form to document
+  
     document.getElementById("start-container").append(form);
   };
   
@@ -185,17 +185,17 @@ const codeQuestions = [
     const target = event.target;
     const currentTarget = event.currentTarget;
   
-    // check if click is from button ONLY
+  
     if (target.getAttribute("name") === "option") {
-      // get the option user clicked on
+    
       const userOption = target.getAttribute("data-option");
   
-      // get the correct option for the question
+    
       const correctOption = currentTarget.getAttribute("data-correct");
   
-      // verify the 2
+    
       if (userOption !== correctOption) {
-        // time penalty deduct 5 seconds
+      
         count -= 5;
         renderDangerAlert();
         if (count > 0) {
@@ -207,12 +207,12 @@ const codeQuestions = [
         renderSuccessAlert();
       }
   
-      // go to next question 0 1 2 (3)
+    
       currentQuestionIndex += 1;
   
-      // check if last question
+    
       if (currentQuestionIndex < codeQuestions.length) {
-        // render the next question
+      
         removeQuestionContainer();
         renderQuestionContainer();
       } else {
@@ -227,52 +227,51 @@ const codeQuestions = [
   };
   
   const constructQuestionContainer = function (question) {
-    // construct container div
+   
     const questionContainer = document.createElement("div");
     questionContainer.setAttribute("class", "container question-container");
     questionContainer.setAttribute("id", "question-container");
     questionContainer.setAttribute("data-correct", question.correctOption);
   
-    // construct h2 element
+    
     const questionH2 = document.createElement("h2");
     questionH2.setAttribute("class", "question");
     questionH2.textContent = question.title;
   
-    // construct options div
+    
     const options = constructOptions(question.options);
   
-    // appending h2 and options div to container div
+  
     questionContainer.append(questionH2, options);
   
-    // add event listener to listen for click events
     questionContainer.addEventListener("click", verifyAnswer);
   
     return questionContainer;
   };
   
-  // render question container
+
   const renderQuestionContainer = function () {
-    // get the current question
+ 
     const currentQuestion = codeQuestions[currentQuestionIndex];
   
-    // construct the HTML for the question container
+  
     const questionContainer = constructQuestionContainer(currentQuestion);
   
-    // append the container to the document
+  
     document.getElementById("quiz-container").appendChild(questionContainer);
   };
   
   const removeStartContainer = function () {
-    // target start container
+  
     const startContainer = document.getElementById("start-container");
-    // remove from document
+  
     startContainer.remove();
   };
   
   const removeQuestionContainer = function () {
-    // target question container
+  
     const questionContainer = document.getElementById("question-container");
-    // remove from document
+  
     questionContainer.remove();
   };
   
@@ -289,7 +288,7 @@ const codeQuestions = [
   };
   
   const startTimer = function () {
-    // declare the timer tick function
+  
     const timerTick = function () {
       if (currentQuestionIndex >= codeQuestions.length) {
         clearInterval(timer);
@@ -303,7 +302,7 @@ const codeQuestions = [
       }
     };
   
-    // declare the timer
+  
     const timer = setInterval(timerTick, 1000);
   };
   
@@ -315,23 +314,23 @@ const codeQuestions = [
     }
   };
   
-  // function to execute when start button is called
+
   const startQuiz = function () {
-    // initialise local storage
+  
     initialLocalStorage();
   
-    // remove start container
+  
     removeStartContainer();
   
-    // render question container
+  
     renderQuestionContainer();
   
-    // start timer
+  
     startTimer();
   };
   
-  // target the start quiz button
+
   const startButton = document.getElementById("start-quiz");
   
-  // add a click event listener and start quiz
+
   startButton.addEventListener("click", startQuiz);

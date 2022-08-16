@@ -155,7 +155,7 @@
   
   .game-over {
     text-align: center;
-    background-color: var(--prussian-blue);
+    background-color: var(--color-sec);
     color: var(--lemon-meringue);
     margin-top: 4rem;
   }
@@ -170,7 +170,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem;
-    background-color: var(--maximum-yellow-red);
+    background-color: var(--color-primary);
     margin-bottom: 0.2rem;
   }
   
